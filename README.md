@@ -43,3 +43,43 @@ Controls start,stop,restart the services through UI
                 
                 
 }
+# -------------------------------------------------------------
+# HTML and JS code :
+# ----------------------------------------------------------------
+
+<body style="margin:50px 500PX;">
+    <div class="container">
+
+        <input id="start" type="button" class="btn btn-success serviceCmd" value="START SERVICE" />
+
+        <input id="stop" type="button" class="btn btn-danger serviceCmd" value="STOP SERVICE" />
+        
+    </div>
+
+
+    <footer>
+        <script src="Scripts/jquery-1.10.2.min.js"></script>
+        <script src="Scripts/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            //var trs = $.noConflict();
+            $(document).ready(function () {
+                console.log('DOM ready');
+                $(".serviceCmd").each(function () {
+                    $(this).click(function () {
+                        var id = $(this).attr("value");
+                        $.ajax({
+                            url: "http://localhost:1672/api/ConversionService/ServiceHandler?id=" + id,
+                            type: "GET",
+                            success: function () {
+                            },
+                            error: function () {
+                            }
+                        });
+                    });//click ends
+                });
+                
+            })//END DOM
+        </script>
+
+    </footer>
+</body>
