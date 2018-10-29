@@ -1,5 +1,7 @@
 # ControlWindowServicesUI
-# Create Empty API Controller with a method paste below code
+# 1.Create a empty API Controller with a method paste below code
+# 2. Create a HTML file paste code from compy froom index.html file which is
+
 Controls start,stop,restart the services through UI
  var id = HttpContext.Current.Request.QueryString.Get("id");
             string serviceName = "";
